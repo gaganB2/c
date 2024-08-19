@@ -1,0 +1,1 @@
+scanf("%d%d",&num1,&num2);
