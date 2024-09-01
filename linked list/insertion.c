@@ -16,18 +16,19 @@ void print(struct node *head){
         ptr=ptr->link; //update the link part so it will get inside the next link of the node
     }
 }
-void count (struct node *head){
-    int count=0;
-    if(head==NULL)
-        printf("linked list is empty");
-    struct node *ptr =NULL;
+void add(struct node *head, int data){
+    struct node *ptr, *temp;
     ptr=head;
-    while(ptr!=NULL){
-        count++;
+    temp=(struct node*)malloc(sizeof(struct node));
+    temp->data=data;
+    temp->link=NULL;
+    while(ptr->link!=NULL)
+    {
         ptr=ptr->link;
     }
-    printf("%d\n",count);
+    ptr->link=temp;
 }
+
 int main()
 {
     struct node *head=NULL;
@@ -55,6 +56,7 @@ int main()
     // printf("%d\n", head->data);
     // printf("%d\n", head->link);
     // printf("%d\n", current->data);
+    add(head,67);
     print(head);
     // count(head);
     return 0;
